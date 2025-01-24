@@ -7,7 +7,7 @@
 Before using the script, make sure to install the necessary dependencies. You can install them via `pip`:
 
 ```
-pip install requests colorama
+pip install requests colorama tqdm
 ```
 
 ### Usage and Example:
