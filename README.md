@@ -1,7 +1,7 @@
 
-# Username
+# Username Search Tool made in python.
 
-Username Search Tool made in python.
+
 
 ### Prerequisites:
 Before using the script, make sure to install the necessary dependencies. You can install them via `pip`:
