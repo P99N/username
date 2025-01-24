@@ -20,7 +20,20 @@ WEBSITES = OrderedDict([
     ("Twitch", "https://www.twitch.tv/{}"),
     ("Pinterest", "https://www.pinterest.com/{}/"),
     ("TikTok", "https://www.tiktok.com/@{}"),
-    ("Flickr", "https://www.flickr.com/photos/{}")
+    ("Flickr", "https://www.flickr.com/photos/{}"),
+    ("Snapchat", "https://www.snapchat.com/add/{}"),
+    ("Twitter", "https://twitter.com/{}"),
+    ("Discord", "https://discord.com/users/{}"),
+    ("Spotify", "https://open.spotify.com/user/{}"),
+    ("SoundCloud", "https://soundcloud.com/{}"),
+    ("Netflix", "https://www.netflix.com/profile/{}"),
+    ("LinkedIn", "https://www.linkedin.com/in/{}"),
+    ("Tumblr", "https://www.tumblr.com/{}"),
+    ("Steam", "https://steamcommunity.com/id/{}"),
+    ("Vimeo", "https://vimeo.com/{}"),
+    ("Quora", "https://www.quora.com/profile/{}"),
+
+
 ])
 
 # custom dict check
@@ -33,7 +46,13 @@ SITE_CHECKS = {
     "GitHub": "find a user",
     "Twitch": "doesn't exist",
     "Pinterest": "couldn't find that page",
-    "Flickr": "nobody seems to be here"
+    "Flickr": "nobody seems to be here",
+    "Twitter": "Sorry, that page doesn’t exist!",
+    "LinkedIn": "This page doesn’t exist",
+    "Tumblr": "There's nothing here",
+    "Steam": "The specified profile could not be found",
+    "Vimeo": "Sorry, we couldn’t find that page",
+
 }
 
 
