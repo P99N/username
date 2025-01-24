@@ -23,6 +23,20 @@ WEBSITES = OrderedDict([
     ("Flickr", "https://www.flickr.com/photos/{}")
 ])
 
+# custom dict check
+SITE_CHECKS = {
+    "Instagram": "page isn't available",
+    "TikTok": "Couldn't find this account",
+    "Reddit": "page not found",
+    "YouTube": "this channel isn't available",
+    "Facebook": "content isn't available right now",
+    "GitHub": "find a user",
+    "Twitch": "doesn't exist",
+    "Pinterest": "couldn't find that page",
+    "Flickr": "nobody seems to be here"
+}
+
+
 # Constants
 REQUEST_DELAY = 2
 MAX_RETRIES = 3
@@ -31,7 +45,7 @@ MAX_RETRIES = 3
 last_request_times = {}
 lock = Lock()
 
-def check_username(website, username):
+def check_username(website_name, website, username):
     """
     Check if the given username exists on the specified website.
     """
@@ -57,10 +71,11 @@ def check_username(website, username):
 
             # Check response status
             if response.status_code == 200:
-                if "Page Not Found" in response.text:
-                    return False
-                else:
-                    return url  
+                if website_name in SITE_CHECKS:
+                    not_found_phrase = SITE_CHECKS[website_name]
+                    if not_found_phrase in response.text.lower():
+                        return False
+                return url 
             elif response.status_code == 404:
                 return False
             else:
@@ -88,7 +103,7 @@ def main():
 
     # Thread pool for concurrent checking
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = {executor.submit(check_username, website, username): website_name for website_name, website in WEBSITES.items()}
+        futures = {executor.submit(check_username, website_name, website_url, username): website_name for website_name, website_url in WEBSITES.items()}
         for future in concurrent.futures.as_completed(futures):
             website_name = futures[future]
             try:
