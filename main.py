@@ -103,9 +103,9 @@ def main():
     print("\nResults:")
     for website, result in results.items():
         if result:
-            print(f"[+] {Fore.GREEN}{website}: Found ({result})")
+            print(f" {Fore.GREEN}{website}: Found ({result})")
         else:
-            print(f"[*] {Fore.RED}{website}: Not Found")
+            print(f" {Fore.RED}{website}: Not Found")
 
     # Save results to a file if specified
     if output_file:
